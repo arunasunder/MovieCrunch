@@ -1,0 +1,36 @@
+
+DB Browser for SQL lite: 
+https://github.com/sqlitebrowser/sqlitebrowser/releases
+
+Installed on mac using :
+brew cask install db-browser-for-sqlite
+
+Works well to browse SQL Lite Databases
+
+
+CREATE TABLE Movies (
+    budget FLOAT NOT NULL, 
+    genres TEXT, 
+    homepage TEXT, 
+    id INTEGER PRIMARY KEY,
+    imdb_id INTEGER, 
+    original_title TEXT NOT NULL, 
+    overview TEXT, 
+    popularity FLOAT,
+    poster_path TEXT, 
+    production_companies TEXT, 
+    production_countries TEXT,  
+    release_date DATE, 
+    revenue FLOAT NOT NULL, 
+    runtime INTEGER, 
+    status TEXT, 
+    tagline TEXT, 
+    title TEXT,
+    vote_average FLOAT, 
+    vote_count INTEGER
+);
+
+
+https://bl.ocks.org/mbostock/3887118 
+
+select convert(datetime, convert(varchar(30), Remarks), 101) 

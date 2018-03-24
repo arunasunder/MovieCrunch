@@ -1,0 +1,151 @@
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+*{
+    font-family: 'Poppins',sans-serif;
+}
+
+body{
+    font-family: 'Poppins';
+    background-color: #524A5F;
+
+}
+#wrapper2,#wrapper4,#wrapper3{
+    background-color:white;
+    box-shadow: 1px 2px 1px 1px;
+}
+#wrapper3{
+    margin-top: 3%;
+}
+h1,h2,h3,p,table,tr,td{
+    font-family: 'Poppins', sans-serif;
+}
+#jumbo{
+    background-color: white;
+}
+#card1>div{
+    box-shadow:0px 0px 10px 0px;
+        
+}
+#logo{
+    width:300px
+}
+#card1>div>img{
+    display: block;
+    margin: auto;
+}
+.card_text{
+    font-style: italic;
+    text-align: center;
+    box-shadow:1px 2px 10px 0px;
+    padding-top: 2%;
+
+}
+#pie_chart{
+    height:500px;
+    width: 100%;
+}
+.header_style{
+    background-color:black;
+    color:white;
+}
+#current_movies {
+    border-collapse: collapse; /* Collapse borders */
+    width: 100%; /* Full-width */
+    border: 1px solid #ddd; /* Add a grey border */
+    font-size: 18px; /* Increase font-size */
+}
+#current_movies th{
+    background-color:#524A5F;
+    
+}
+
+#current_movies th, #current_movies td {
+    text-align: left; /* Left-align text */
+    padding: 12px; /* Add padding */
+}
+
+#current_movies tr {
+    /* Add a bottom border to all table rows */
+    border-bottom: 1px solid #ddd; 
+}
+
+#current_movies tr.header, #current_movies tr:hover {
+    /* Add a grey background color to the table header and on hover */
+    background-color: #f1f1f1;
+}
+
+
+#sean{
+    width: 100%;
+    border-radius: 30%;
+    box-shadow:1px 2px 20px 0px;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+}
+
+/*.container:hover #overlay {
+    opacity: 1;
+}*/
+
+.text {
+    color: black;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+  }
+#zach{
+    width: 100%;
+    border-radius: .5;
+}
+
+#overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+}
+
+.container:hover #overlay {
+    opacity: 1;
+}
+
+.text {
+    color: black;
+    font-size: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+  }
+
+
+
+@media (max-width: 1000px){
+    #card1{
+        display: none !important;
+    }
+    #logo{
+        display: block !important;
+        margin: auto;
+        
+    }
+}

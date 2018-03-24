@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en"> 
+ <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Movie Cruncher</title>
+    <!-- Bootstrap core CSS -->
+              <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <link rel="stylesheet" href="../static/style/style.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+  
+      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  </head>
+  <body>
+        <!-- Navigation -->
+     
+    <nav class="navbar navbar-light bg-light static-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html"><img src="../static/LogoMakr_4OxzVa.png" id="logo"> </a>
+      </div>
+    </nav>
+      <!-- Jumbotron -->
+    <div class="container">
+        <div class="row" style="margin-top:3%;">
+                <div class="col-lg-12 jumbotron jumbotron-fluid" id="jumbo">
+                <div class="container">
+                    <h1 class="display-4">About Us</h1>
+                        <p class="lead">Our goal is to tell a story on our propietary movie ranking based on metrics we gather by pulling movie box office hits, consumer reviews and other info from fandango and other movie developer API sources. </p>
+                </div>
+            </div>
+          </div>
+        
+        <div class="row" style="margin-top:3%;">
+                <div class="col-lg-12 jumbotron jumbotron-fluid" id="jumbo">
+                    <div class="container">
+                    <h1 class="display-4">Data We Used</h1>
+                        <p class="lead">
+                            <ol>
+                                <li>Fandango API</li>
+                                <li>Kaggle Movie Dataset</li>
+                            </ol>
+                            
+                        </p>
+                    </div>    
+                </div>
+        </div>
+      </div>
+    <div class="container">
+            <div class="row" style="margin-top:3%;">
+                    <div class="col-lg-12 jumbotron jumbotron-fluid" id="jumbo">
+                        <div class="container">
+                        <h1 class="display-4">Visualization Tools</h1>
+                            <p class="lead"></p>
+                                <ol>
+                                    <li>Bootstrap</li>
+                                    <li>Python</li>
+                                </ol>
+                        </div>
+                    </div>
+            </div>
+      </div>
+      <div class="container" id="wrapper2"> 
+          <div class="row">
+                <div class ="col-lg-12">
+                        <h1 style="text-align:center">Who Worked on This Project</h1>
+                </div>
+          </div>  
+                
+          <div class="row">
+                        <div class ="col-lg-4">
+                                <h2 style="text-align:center;">Sean Noone</h2>
+        
+                        </div>
+                        <div class ="col-lg-4">
+                                 <h2 style="text-align:center">Zach Quasney</h2>
+                
+                        </div>
+                        <div class ="col-lg-4">
+                                <h2 style="text-align:center">Aruna Amaresan</h2>
+        
+                        </div>
+        
+          </div> 
+        
+
+        
+          <div class="row">
+            <div class="col-lg-4">
+                    <img src = "profile pic.jpg" alt = "fail" id="test_img" style="border-radius: 30%;box-shadow:1px 2px 20px 0px;"> 
+                    <div class="overlay"> 
+                        <div class="text">Sean Noone</div>
+                    </div>
+            </div>
+            <div class="col-lg-4">
+                    <img src = "jeter.jpg" alt = "fail" id="jeter_img" style="border-radius: 30%;box-shadow:1px 2px 10px 0px;"> 
+                    <div class="overlay"> 
+                            <div class="text">Zach Quasney</div>
+                        </div>
+            </div>       
+            <div class="col-lg-4">
+                    <img src = "Eli-Manning.jpg" alt = "fail" id="manning_img" style="border-radius: 30%;box-shadow:1px 2px 20px 0px; border:2px solid black"> 
+        
+            </div>  
+        
+        </div>
+            
+        
+        <div class="row" id="card1">
+            <div class="col-lg-12">
+            </div>
+             
+        
+        </div>
+        </div>
+        <!--  
+        </div>
+          <div class="row">
+            <div class="col-lg-12">
+                <h3 style="text-align:center;">Movies Coming Soon</h3>  
+              
+            </div>
+          
+          </div>
+          <div class="row">
+              <div class="col-lg-12">
+              <table id = "current_movies" class="table table-bordered table-hover" style="margin-top:3%;">
+                        <thead class="thead-inverse" id="coming_soon">
+                            <tr>
+                                <th class="header_style">Title</th>
+                                <th class="header_style">Release Date</th>
+                                <th class="header_style">Cruncher Rating</th>
+                            </tr>
+                        </thead>
+                    <tbody>
+                    </tbody>
+                    </table>
+              </div>
+          
+          </div>
+            
+      
+      </div>
+          <!-- Footer -->
+    <footer class="footer bg-light" style="margin-top:3%;">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+            <p class="text-muted small mb-4 mb-lg-0">&copy; Movie Cruncher 2018. All Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+      
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.js"></script>
+        <!-- Plotly.js -->
+        <!-- Numeric JS -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"> </script>
+           
+      
+      <!--<script src="rev_plot.js"></script>-->
+            
+            
+</body>
+</html> 
