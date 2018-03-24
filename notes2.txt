@@ -20,3 +20,10 @@ pip freeze > requirements.txt
 ensure file is created 
 
 touch Procfile
+
+The fill with followijg commands: 
+
+
+//Pushed data to github master 
+
+//Then went to herok - created a new app and connect the github source master 
