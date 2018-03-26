@@ -27,3 +27,14 @@ The fill with followijg commands:
 //Pushed data to github master 
 
 //Then went to herok - created a new app and connect the github source master 
+
+<div id="divCheckbox" style="visibility: hidden; display:inline;">
+<div id="divCheckbox" style="display: none;">
+
+http://image.tmdb.org/t/p/w185/eQs5hh9rxrk1m4xHsIz1w11Ngqb.jpg
+
+http://image.tmdb.org/t/p/w185/weuswmdqia3naxvzwuoiicai85d.jpg
+
+.img-responsive {
+    margin: 0 auto;
+}
