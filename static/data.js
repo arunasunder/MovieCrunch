@@ -1,8 +1,9 @@
 var movieidlist = []
 var title_list = [];
 var rev_list = [];
+var rating_list = [];
 function buildplot(array1,array2){
-        console.log(array1)
+        //console.log(array1)
         test = array1
         var trace1 = {  
             labels: array2,
@@ -10,12 +11,29 @@ function buildplot(array1,array2){
             type: 'pie'
             }
         var data = [trace1];
-        console.log("data is here",test);
+        //console.log("data is here",test);
         Plotly.newPlot('pie_chart', data);
     }
+function build2plot(array3,array4){
+    // Create the Trace
+        var trace2 = {
+            x: array3,
+            y: array4,
+            type:"bar"
+        };
+        // Create the data array for our plot
+        var data2 = [trace2];
+        // Define our plot layout
+        var layout2 = {
+            title: "Movie Chart"
+        };
+        // Plot the chart to a div tag with id "bar-plot"
+        Plotly.newPlot("bar-plot", data2, layout2)
+};
 
     var key = "84ef22f5d85f87fb669625c2771b6737"
     var queryURL = "https://api.themoviedb.org/3/movie/now_playing?api_key=84ef22f5d85f87fb669625c2771b6737";
+
 
     
     d3.json(queryURL, function (error, response) {
@@ -27,13 +45,10 @@ function buildplot(array1,array2){
 
 
     for(var i = 0; i < movieidlist.length;i++){
-            //movie_id_list.push(movie_id);
-            //console.log(movie_id);
+          
             queryURL2 = "https://api.themoviedb.org/3/movie/"+movieidlist[i]+"?api_key=84ef22f5d85f87fb669625c2771b6737";
             //console.log(queryURL2);
-            console.log(queryURL2);
-           //console.log("This is the movie_id list: "+movie_id_list)
-           //console.log("This is the list: " + title_list)
+          
             d3.json(queryURL2, function(error, response){
                     //console.log(queryURL2, response);
                     var title = response.title;
@@ -43,10 +58,10 @@ function buildplot(array1,array2){
                     var release_date = response.release_date;
                     var poster_img = response.poster_path;
                     var rating = response.vote_average;
+                    rating_list.push(rating);
+                
 
-                    //console.log(title);
                     
-
                     d3.select("#card1")
                         .append("div")
                         .attr("class", "col-lg-3")
@@ -60,6 +75,8 @@ function buildplot(array1,array2){
                         .attr("class", "card_text")
                         .html("<b>"+title+"</b><br></br>Released: "+release_date+"<br></br><p>Cruncher Rating: "+rating)
                     buildplot(rev_list,title_list);
+                    build2plot(title_list, rating_list);
+                    
                 });
                 
                 
@@ -70,10 +87,7 @@ function buildplot(array1,array2){
     console.log(movieidlist);
 
 
-        console.log("about to build the plot: ",rev_list);
           
-
-    //buildplot(rev_list);
 
     var queryURL3 = "https://api.themoviedb.org/3/movie/upcoming?api_key=84ef22f5d85f87fb669625c2771b6737";
 
