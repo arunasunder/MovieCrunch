@@ -28,10 +28,9 @@
         <!-- Navigation -->
 
 
- <nav id="navigation_bar">
-        <div class="navbar navbar-expand-md navbar-light bg-light">
-            <div class="container">
-          <a class="navbar-brand" href="index.html" id="logo"><img src="../static/LogoMakr_4OxzVa.png" id="logo"></a>
+ <nav>
+        <div class="navbar navbar-default navbar-expand-md" id="navigation_bar">
+         <a class="navbar-brand" href="index.html" id="logo"><img src="../static/LogoMakr_2uCXIK.png" id="logo">Movie Cruncher</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -39,21 +38,22 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto" id="nav_list">
           <li class="nav-item">
-            <a class="nav-link" href="#">Cruncher Analytics <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="crunchanalyze.html">Cruncher Analytics <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
+            <a class="nav-link" href="about.html" class="header_links">About</a>
           </li>
           
         </ul>
     
             </div>
-            </div>
+            
         </div>
     </nav>
               
       <!-- Jumbotron -->
-    <div class="container">
+      <!--
+    <div>
         <div class="row" style="margin-top:3%;">
                 <div class="col-lg-12 jumbotron jumbotron-fluid" id="jumbo">
                 <div class="container">
@@ -63,9 +63,27 @@
             </div>
           </div>
         
+      </div>-->
+      <!-- Search -->
+       <div class="row wrapper">
+
+        <div class="col-lg-12">
+            <div class="form-group">
+                        <input type="text" class="form-control" id="movie_search" placeholder="Search for Movies . . . ">
+            </div>    
+        </div>
       </div>
-      <div class="container" id="wrapper2">  
-        <div class="row">
+      <div class="row" >
+          <div class="col-lg-12" id="search_text">
+          
+          </div>
+          <div class="col-lg-12" id="search_results"></div>
+      
+      </div>
+         
+      
+        
+        <div class="row wrapper elem1" id="elem1">
             <div class="col-lg-12">
                 <h1 style="text-align:center">Top Movies Now Playing</h1>
                 <!-- Default dropright button -->
@@ -94,15 +112,16 @@
                     
             </div> 
         
-        <div class="row" id="card1">
+        <div class="row wrapper elem1" id="card1">
              
           
         </div>
-          <div class="row" id="card2">
+          <div class="row wrapper elem1" id="card2">
           
           </div>
-          <div class="row" id="pie_chart">
-              
+          <div class="row elem1">
+              <div class ="col-lg-6" id="pie_chart"></div>
+              <div class="col-lg-6" id="bar-plot"></div>
         
           
           
@@ -129,18 +148,17 @@
           
             
       
-      </div>
-      <div class="container" id="wrapper3">
-            <div class="row">
+      
+            <div class="row elem1" id="wrapper">
                 <div class="col-lg-12">
-                    <h1 style="text-align:center;">Movies Coming Soon</h1>  
+                    <h1 class="elem1" style="text-align:center;">Movies Coming Soon</h1>  
               
                 </div>
           
             </div>
-            <div class="row">
+            <div class="row elem1" id="elem2">
                 <div class="col-lg-12">
-                    <table id = "current_movies" class="table table-bordered table-hover" style="margin-top:3%;">
+                    <table id = "current_movies" class="table table-bordered table-hover elem1" style="margin-top:3%;">
                         <thead class="thead-inverse" id="coming_soon">
                             <tr>
                                 <th class="header_style">Title</th>
@@ -155,7 +173,6 @@
               </div>
           
           </div>
-      </div>
           <!-- Footer -->
     <footer class="footer bg-light" style="margin-top:3%;">
       <div class="container">
@@ -175,6 +192,7 @@
         <!-- Numeric JS -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"> </script>
       <script src="../static/data.js"></script>
+      <script src="../static/search.js"></script>
       
       
       <!--<script src="rev_plot.js"></script>-->

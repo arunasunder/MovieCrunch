@@ -1,34 +1,54 @@
-@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+@import "https://fonts.googleapis.com/css?family=PT+Sans+Narrow:300,400,500,600,700";
 
 *{
-    font-family: 'Poppins',sans-serif;
+    font-family: 'PT Sans Narrow',sans-serif;
 }
 
 body{
-    font-family: 'Poppins';
-    background-color: #524A5F;
+    font-family: 'PT Sans Narrow';
+    background-color: #f4f4f4;
 
 }
-#wrapper2,#wrapper4,#wrapper3{
-    background-color:white;
-    box-shadow: 1px 2px 1px 1px;
+.row{
+    background-color:#f4f4f4;
+    border-radius: 2%;
+    margin-left: 10%;
+    margin-right:10%;
+    
+    
 }
-#wrapper3{
+.navbar-default{
+    background-color: black;
+    border-color: white;
+}
+.nav-link{
+    color:#f1f1f1;
+}
+
+#wrapper{
     margin-top: 3%;
 }
 h1,h2,h3,p,table,tr,td{
-    font-family: 'Poppins', sans-serif;
+    font-family: 'PT Sans Narrow', sans-serif;
 }
 #jumbo{
     background-color: white;
 }
+#movie_search{
+    height:60px;
+    margin-top: 2%;
+    background-color:white;;
+}
 #card1>div{
-    box-shadow:0px 0px 10px 0px;
+    ;
         
 }
 #logo{
-    width:300px
+    width:200px;
+    color: #f1f1f1;
+    font-size: 30px;
 }
+
 #card1>div>img{
     display: block;
     margin: auto;
@@ -36,13 +56,22 @@ h1,h2,h3,p,table,tr,td{
 .card_text{
     font-style: italic;
     text-align: center;
-    box-shadow:1px 2px 10px 0px;
+    box-shadow:1px 0px 0px 0px;
+    border: 1px solid black;
     padding-top: 2%;
 
 }
 #pie_chart{
     height:500px;
     width: 100%;
+}
+#bar-plot{
+    height:500px;
+    width:100%;
+}
+.navbar-toggler{
+    background-color:#f1f1f1;
+    
 }
 .header_style{
     background-color:black;
@@ -55,7 +84,7 @@ h1,h2,h3,p,table,tr,td{
     font-size: 18px; /* Increase font-size */
 }
 #current_movies th{
-    background-color:#524A5F;
+    background-color:black;
     
 }
 
@@ -146,6 +175,5 @@ h1,h2,h3,p,table,tr,td{
     #logo{
         display: block !important;
         margin: auto;
-        
     }
 }
