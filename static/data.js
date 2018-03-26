@@ -1,4 +1,5 @@
-var movieidlist = []
+var movieidlist = [];
+console.log(movieidlist);
 var title_list = [];
 var rev_list = [];
 var rating_list = [];
@@ -37,7 +38,8 @@ function build2plot(array3,array4){
 
     
     d3.json(queryURL, function (error, response) {
-        //console.log("queryURL", response);
+        
+        console.log("queryURL", response);
         for (i = 0; i < 4; i++) {
             var movie_id = response.results[i].id;
             movieidlist.push(movie_id)
@@ -59,6 +61,7 @@ function build2plot(array3,array4){
                     var poster_img = response.poster_path;
                     var rating = response.vote_average;
                     rating_list.push(rating);
+                    
                 
 
                     
@@ -73,7 +76,7 @@ function build2plot(array3,array4){
                         .attr("class", "col-lg-3")
                         .append("p")
                         .attr("class", "card_text")
-                        .html("<b>"+title+"</b><br></br>Released: "+release_date+"<br></br><p>Cruncher Rating: "+rating)
+                        .html("<b>"+title+"</b><br></br>Released: "+release_date+"<br></br><p>Cruncher Rating: "+rating+"<br>Find Tickets: ")
                     buildplot(rev_list,title_list);
                     build2plot(title_list, rating_list);
                     

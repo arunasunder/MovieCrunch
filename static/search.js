@@ -19,7 +19,7 @@ $("#movie_search").on("keyup", function(e){
                var s_release_date = response.results[i].release_date;
                
                d3.select("#search_results").append("img").attr("src","http://image.tmdb.org/t/p/w185/"+s_poster_image).attr("alt", "Sorry, No Image")
-               d3.select("#search_results").append("p").html("<b>Title:</b> "+s_movie_title+"<br><b>Release Date:</b> "+s_release_date+ "<br><b>Description:</b> "+s_overview+"<hr>");
+               d3.select("#search_results").append("p").html("<b>Title:</b><i>"+s_movie_title+"</i><br><b>Release Date:</b> "+s_release_date+ "<br><b>Description:</b> "+s_overview+"<hr>");
                //d3.select("#search_results").append("br")
                
               /* d3.select("#search_results").append("div").attr("Class", "col-lg-3").html("<p>"+s_movie_title+"</p>");

@@ -27,8 +27,8 @@
 
         <!-- Navigation -->
 
-
- <nav>
+ <nav id="nav_wrapper">
+     <div class="container">
         <div class="navbar navbar-default navbar-expand-md" id="navigation_bar">
          <a class="navbar-brand" href="index.html" id="logo"><img src="../static/LogoMakr_2uCXIK.png" id="logo">Movie Cruncher</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,7 +49,9 @@
             </div>
             
         </div>
+     </div>
     </nav>
+    
               
       <!-- Jumbotron -->
       <!--
@@ -86,6 +88,7 @@
         <div class="row wrapper elem1" id="elem1">
             <div class="col-lg-12">
                 <h1 style="text-align:center">Top Movies Now Playing</h1>
+                <hr>
                 <!-- Default dropright button -->
                 <!--<div class="btn-group dropright">
                   <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -113,12 +116,24 @@
             </div> 
         
         <div class="row wrapper elem1" id="card1">
-             
+             <div id="card1_text"></div>
           
         </div>
           <div class="row wrapper elem1" id="card2">
           
           </div>
+          <div class="row elem1">
+                    <div class ="col-lg-12">
+                        <a href="#" id="see_all">Click to See all</a>
+                    </div>
+            </div>
+      <div class="row" >
+          <div class="col-lg-12" id="see_all_img">
+          
+          </div>
+          <div class="col-lg-12" id="search_results"></div>
+      
+      </div>
           <div class="row elem1">
               <div class ="col-lg-6" id="pie_chart"></div>
               <div class="col-lg-6" id="bar-plot"></div>
@@ -126,6 +141,7 @@
           
           
           </div>
+            
 
 
           
@@ -152,7 +168,7 @@
             <div class="row elem1" id="wrapper">
                 <div class="col-lg-12">
                     <h1 class="elem1" style="text-align:center;">Movies Coming Soon</h1>  
-              
+                    <hr>
                 </div>
           
             </div>
@@ -193,6 +209,7 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"> </script>
       <script src="../static/data.js"></script>
       <script src="../static/search.js"></script>
+      <script src="../static/see_all.js"></script>
       
       
       <!--<script src="rev_plot.js"></script>-->
