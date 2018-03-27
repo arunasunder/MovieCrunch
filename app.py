@@ -310,7 +310,9 @@ def movie_profit_rating_2013():
 def movie_data():
     """Return emoji score and emoji char"""
     # query for the top 10 revenue movie data
-    results = db.session.query(Movie.original_title, Movie.revenue).\
+    # Filtering all budget less than 1 million as there are a bunch of invalid values 
+    results = db.session.query(Movie.title, Movie.revenue, Movie.budget).\
+        filter(Movie.budget >= 1000000.0).\
         order_by(Movie.revenue.desc()).\
         limit(10).all()
 
@@ -319,21 +321,53 @@ def movie_data():
     # Select the top 10 query results
     movie_title = [result[0] for result in results]
     revenues = [int(result[1]) for result in results]
+    budget_values = [int(result[2]) for result in results]
+    print('Inside TOP 10 MOVIE BY REVENUE API FOR ALL')
 
-    # Generate the plot trace
+
+    #budget_string = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    budget_string = []
+
+    #print ('BUDGET STRING' + budget_string)
+    #i =0; 
+
+    for budget, rev in zip(budget_values, revenues):
+        print(budget, rev)
+        budget_percent = int((budget/rev)*100)
+        bstring = 'Budget is ' + str(budget_percent) + '% of revenue'
+        print(bstring)
+        budget_string.append(bstring)
+        #budget_string[i]  = bstring
+
+    for string_value in budget_string:
+        print ('BUDGET STRING UPDATED ' + string_value)
+
+
+    # Generate the plot trace1 for revenues and plot trace 2 for budget numbers 
     plot_trace = {
         "x": movie_title,
         "y": revenues,
-        "type": "bar"
+        "type": "bar",
+        "text": budget_string #budget_values
+        #"name": "Revenue"
     }
+
+    '''plot_trace2 = {
+        "x": movie_title,
+        "y": budget_values,
+        "type": "bar",
+        "name": "Budget"
+    } '''
+    #plot_data = [plot_trace1, plot_trace2]
+
     return jsonify(plot_trace)
 
 @app.route("/top10_movie_by_revenue_2017")
 def movie_data_2017():
     """Return emoji score and emoji char"""
     # query for the top 10 revenue movie data
-    results = db.session.query(Movie.original_title, Movie.revenue).\
-        filter(Movie.release_date.like('%17')).\
+    results = db.session.query(Movie.title, Movie.revenue, Movie.budget).\
+        filter(and_(Movie.release_date.like('%17'), (Movie.budget >= 1000000.0))).\
         order_by(Movie.revenue.desc()).\
         limit(10).all()
 
@@ -342,21 +376,54 @@ def movie_data_2017():
     # Select the top 10 query results
     movie_title = [result[0] for result in results]
     revenues = [int(result[1]) for result in results]
+    budget_values = [int(result[2]) for result in results]
+    print('Inside TOP 10 MOVIE BY REVENUE API FOR 2017')
+
+    #budget_string = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    budget_string = []
+    #print ('BUDGET STRING' + budget_string)
+    #i =0; 
+    for budget, rev in zip(budget_values, revenues):
+        print(budget, rev)
+        budget_percent = int((budget/rev)*100)
+        bstring = 'Budget is ' + str(budget_percent) + '% of revenue'
+        print(bstring)
+        budget_string.append(bstring)
+        #budget_string[i]  = bstring
+
+    for string_value in budget_string:
+        print ('BUDGET STRING UPDATED ' + string_value)
+
+    #Color according to year 
+    color_by_year = []
+    for result in results:
+        color_by_year.append('rgba(13, 186, 47, 1)')
 
     # Generate the plot trace
     plot_trace = {
         "x": movie_title,
         "y": revenues,
-        "type": "bar"
+        "type": "bar",
+        "text": budget_string,
+        "marker": { "color": 'rgba(13, 186, 47, 1)' }
     }
     return jsonify(plot_trace)
+
+
+''' 
+color_by_year = ['rgba(186, 134, 13, 1)', #2013
+        'rgba(240, 128, 38, 1)', #2014
+        'rgba(186, 47, 13, 1)', #2015
+        'rgba(128, 144, 194, 1)', #2016
+        'rgba(13, 186, 47, 1)']  #green 2017
+'''
 
 @app.route("/top10_movie_by_revenue_2016")
 def movie_data_2016():
     """Return emoji score and emoji char"""
     # query for the top 10 revenue movie data
-    results = db.session.query(Movie.original_title, Movie.revenue).\
-        filter(Movie.release_date.like('%16')).\
+    results = db.session.query(Movie.title, Movie.revenue, Movie.budget).\
+        filter(and_(Movie.release_date.like('%16'), (Movie.budget >= 1000000.0))).\
         order_by(Movie.revenue.desc()).\
         limit(10).all()
 
@@ -365,21 +432,44 @@ def movie_data_2016():
     # Select the top 10 query results
     movie_title = [result[0] for result in results]
     revenues = [int(result[1]) for result in results]
+    budget_values = [int(result[2]) for result in results]
+    print('Inside TOP 10 MOVIE BY REVENUE API for 2016')
+
+
+    #budget_string = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    budget_string = []
+
+    #print ('BUDGET STRING' + budget_string)
+    #i =0; 
+
+    for budget, rev in zip(budget_values, revenues):
+        print(budget, rev)
+        budget_percent = int((budget/rev)*100)
+        bstring = 'Budget is ' + str(budget_percent) + '% of revenue'
+        print(bstring)
+        budget_string.append(bstring)
+        #budget_string[i]  = bstring
+
+    for string_value in budget_string:
+        print ('BUDGET STRING UPDATED ' + string_value)
 
     # Generate the plot trace
     plot_trace = {
         "x": movie_title,
         "y": revenues,
-        "type": "bar"
+        "type": "bar",
+        "text": budget_string,
+        "marker": { "color": 'rgba(128, 144, 194, 1)'}
     }
     return jsonify(plot_trace)
+
 
 @app.route("/top10_movie_by_revenue_2015")
 def movie_data_2015():
     """Return emoji score and emoji char"""
     # query for the top 10 revenue movie data
-    results = db.session.query(Movie.original_title, Movie.revenue).\
-        filter(Movie.release_date.like('%15')).\
+    results = db.session.query(Movie.title, Movie.revenue, Movie.budget).\
+        filter(and_(Movie.release_date.like('%15'), (Movie.budget >= 1000000.0))).\
         order_by(Movie.revenue.desc()).\
         limit(10).all()
 
@@ -388,12 +478,34 @@ def movie_data_2015():
     # Select the top 10 query results
     movie_title = [result[0] for result in results]
     revenues = [int(result[1]) for result in results]
+    budget_values = [int(result[2]) for result in results]
+    print('Inside TOP 10 MOVIE BY REVENUE API FOR 2015')
+
+
+    #budget_string = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    budget_string = []
+
+    #print ('BUDGET STRING' + budget_string)
+    #i =0; 
+
+    for budget, rev in zip(budget_values, revenues):
+        print(budget, rev)
+        budget_percent = int((budget/rev)*100)
+        bstring = 'Budget is ' + str(budget_percent) + '% of revenue'
+        print(bstring)
+        budget_string.append(bstring)
+        #budget_string[i]  = bstring
+
+    for string_value in budget_string:
+        print ('BUDGET STRING UPDATED ' + string_value)
 
     # Generate the plot trace
     plot_trace = {
         "x": movie_title,
         "y": revenues,
-        "type": "bar"
+        "type": "bar",
+        "text": budget_string,
+        "marker": { "color": 'rgba(186, 47, 13, 1)'}
     }
     return jsonify(plot_trace)
 
@@ -401,8 +513,8 @@ def movie_data_2015():
 def movie_data_2014():
     """Return emoji score and emoji char"""
     # query for the top 10 revenue movie data
-    results = db.session.query(Movie.original_title, Movie.revenue).\
-        filter(Movie.release_date.like('%14')).\
+    results = db.session.query(Movie.title, Movie.revenue, Movie.budget).\
+        filter(and_(Movie.release_date.like('%14'), (Movie.budget >= 1000000.0))).\
         order_by(Movie.revenue.desc()).\
         limit(10).all()
 
@@ -411,12 +523,34 @@ def movie_data_2014():
     # Select the top 10 query results
     movie_title = [result[0] for result in results]
     revenues = [int(result[1]) for result in results]
+    budget_values = [int(result[2]) for result in results]
+    print('Inside TOP 10 MOVIE BY REVENUE API FOR 2014')
+
+
+    #budget_string = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    budget_string = []
+
+    #print ('BUDGET STRING' + budget_string)
+    #i =0; 
+
+    for budget, rev in zip(budget_values, revenues):
+        print(budget, rev)
+        budget_percent = int((budget/rev)*100)
+        bstring = 'Budget is ' + str(budget_percent) + '% of revenue'
+        print(bstring)
+        budget_string.append(bstring)
+        #budget_string[i]  = bstring
+
+    for string_value in budget_string:
+        print ('BUDGET STRING UPDATED ' + string_value)
 
     # Generate the plot trace
     plot_trace = {
         "x": movie_title,
         "y": revenues,
-        "type": "bar"
+        "type": "bar",
+        "text": budget_string,
+        "marker": { "color": 'rgba(240, 128, 38, 1)'}
     }
     return jsonify(plot_trace)
 
@@ -424,8 +558,8 @@ def movie_data_2014():
 def movie_data_2013():
     """Return emoji score and emoji char"""
     # query for the top 10 revenue movie data
-    results = db.session.query(Movie.original_title, Movie.revenue).\
-        filter(Movie.release_date.like('%13')).\
+    results = db.session.query(Movie.title, Movie.revenue, Movie.budget).\
+        filter(and_(Movie.release_date.like('%13'), (Movie.budget >= 1000000.0))).\
         order_by(Movie.revenue.desc()).\
         limit(10).all()
 
@@ -434,14 +568,34 @@ def movie_data_2013():
     # Select the top 10 query results
     movie_title = [result[0] for result in results]
     revenues = [int(result[1]) for result in results]
+    budget_values = [int(result[2]) for result in results]
+    print('Inside TOP 10 MOVIE BY REVENUE API FOR 2013')
+    #budget_string = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    budget_string = []
+
+    #print ('BUDGET STRING' + budget_string)
+    #i =0; 
+    for budget, rev in zip(budget_values, revenues):
+        print(budget, rev)
+        budget_percent = int((budget/rev)*100)
+        bstring = 'Budget is ' + str(budget_percent) + '% of revenue'
+        print(bstring)
+        budget_string.append(bstring)
+        #budget_string[i]  = bstring
+
+    for string_value in budget_string:
+        print ('BUDGET STRING UPDATED ' + string_value)
 
     # Generate the plot trace
     plot_trace = {
         "x": movie_title,
         "y": revenues,
-        "type": "bar"
+        "type": "bar",
+        "text": budget_string,
+        "marker": { "color": 'rgba(186, 134, 13, 1)' }
     }
     return jsonify(plot_trace)
+
 
 @app.route("/total_revenue")
 def movie_total_revenue_by_year():
@@ -512,11 +666,11 @@ def movie_total_revenue_by_year():
     for year, total_rev in zip(year_info, revenues):
         print(year, total_rev)
 
-    color_by_year = ['rgba(186, 134, 13, 1)', #green
-        'rgba(240, 128, 38, 1)', #purple
-        'rgba(186, 47, 13, 1)', #red
-        'rgba(128, 144, 194, 1)', #orange
-        'rgba(13, 186, 47, 1)'] #brown
+    color_by_year = ['rgba(186, 134, 13, 1)', #2013
+        'rgba(240, 128, 38, 1)', #2014
+        'rgba(186, 47, 13, 1)', #2015
+        'rgba(128, 144, 194, 1)', #2016
+        'rgba(13, 186, 47, 1)']  #green 2017
 
     # Generate the plot trace
     plot_trace = {
