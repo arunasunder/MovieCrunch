@@ -17,44 +17,44 @@
   <body>
         <!-- Navigation -->
      
-        <nav id="navigation_bar">
-            <div class="navbar navbar-expand-md navbar-light bg-light">
-                <div class="container">
-              <a class="navbar-brand" href="index.html" id="logo"><img src="../static/LogoMakr_4OxzVa.png" id="logo"></a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
+        <nav id="nav_wrapper">
+     <div class="container">
+        <div class="navbar navbar-default navbar-expand-md" id="navigation_bar">
+         <a class="navbar-brand" href="index.html" id="logo"><img src="../static/LogoMakr_2uCXIK.png" id="logo">Movie Cruncher</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto" id="nav_list">
+          <li class="nav-item">
+            <a class="nav-link" href="crunchanalyze.html">Cruncher Analytics <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html" class="header_links">About</a>
+          </li>
+          
+        </ul>
     
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto" id="nav_list">
-              <li class="nav-item">
-                <a class="nav-link" href="#">Cruncher Analytics <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
-              </li>
-              
-            </ul>
-        
-                </div>
-                </div>
             </div>
-        </nav>
+            
+        </div>
+     </div>
+    </nav>
       <!-- Jumbotron -->
     <div class="container">
         <div class="row" style="margin-top:3%;">
-                <div class="col-lg-12 jumbotron jumbotron-fluid" id="jumbo">
-                <div class="container">
-                    <h1 class="display-4">About</h1>
-                        <p class="lead">Our goal is to tell a story on our propietary movie ranking based on metrics we gather by pulling movie box office hits, consumer reviews and other info from fandango and other movie developer API sources. </p>
-                </div>
+            <div class="col-lg-12">
+                    <h1 class="display-4">Overview</h1>
+                        <p class="lead"> This page was created using various tools including SQLlite backend and API integration all housed on a Flask built application to render different HTML, JS and API routes. Our goal is to tell a story based on metrics we gathered by pulling movie box office hits. On the home page we supplied a portal to view real time movies either currently in, or coming soon to theater to show what's hot and what's not. On our Cruncher Analytics page, we store a larger historical dataset, to show yearly revenue and budget trends.</p>
             </div>
           </div>
+        <hr>
         
-        <div class="row" style="margin-top:3%;">
-                <div class="col-lg-12 jumbotron jumbotron-fluid" id="jumbo">
-                    <div class="container">
-                    <h1 class="display-4">Data We Used</h1>
+        <div class="row">
+            <div class="col-lg-5 about_wrapper" id="data_used">
+                    <h2 class="display-4">Data We Used</h2>
+                        <hr>
                         <p class="lead">
                             <ol>
                                 <li>Fandango API</li>
@@ -62,64 +62,55 @@
                             </ol>
                             
                         </p>
-                    </div>    
-                </div>
-        </div>
-      </div>
-    <div class="container">
-            <div class="row" style="margin-top:3%;">
-                    <div class="col-lg-12 jumbotron jumbotron-fluid" id="jumbo">
-                        <div class="container">
-                        <h1 class="display-4">Visualization Tools</h1>
-                            <p class="lead"></p>
-                                <ol>
-                                    <li>Bootstrap</li>
-                                    <li>Python</li>
-                                </ol>
-                        </div>
-                    </div>
             </div>
+        <div class="col-lg-2"></div>
+            <div class="col-lg-5 about_wrapper" id="viz_tools">
+                    <h2 class="display-4">Visualization Tools</h2>
+                        <hr>
+                        <p class="lead"></p>
+                            <ol>
+                                <li>D3</li>
+                                <li>Plotly</li>
+                                <li>JQuery</li>
+                            </ol>
+            </div>
+        </div>
+          <hr>
+
       </div>
       <div class="container" id="wrapper2"> 
           <div class="row">
                 <div class ="col-lg-12">
+<!--
                         <h1 style="text-align:center">Our Team</h1>
+-->
                 </div>
           </div>  
                 
-          <div class="row">
-                        <div class ="col-lg-4">
-                                <h2 style="text-align:center;">Sean Noone</h2>
-        
-                        </div>
-                        <div class ="col-lg-4">
-                                 <h2 style="text-align:center">Zach Quasney</h2>
-                
-                        </div>
-                        <div class ="col-lg-4">
-                                <h2 style="text-align:center">Aruna Amaresan</h2>
-        
-                        </div>
-        
-          </div> 
+
         
 
         
           <div class="row">
             <div class="col-lg-4">
-                    <img src = "../static/sean.jpg" alt = "fail" id="sean" style="border-radius: 30%;box-shadow:1px 2px 20px 0px;"> 
+                <h2 style="text-align:center;">Sean Noone</h2>
+                    <img src = "../static/sean.png" alt = "fail" id="sean"> 
                     <div class="overlay" id="overlay"> 
                         <div class="text">Student at Rutgers University</div>
                     </div>
             </div>
             <div class="col-lg-4">
-                    <img src = "../static/zachQ.jpg" alt = "fail" id="zach" style="border-radius: 30%;box-shadow:1px 2px 10px 0px; height:450px"> 
+                <h2 style="text-align:center">Zach Quasney</h2>
+
+                    <img src = "../static/zachQ.jpg" alt = "fail" id="zach"> 
                     <div class="overlay" id="overlay2"> 
-                            <div class="text">IT analysts at Johnson & Johnson</div>
+                            <div class="text">IT Analysts at Johnson & Johnson</div>
                         </div>
             </div>       
             <div class="col-lg-4">
-                    <img src = "../static/aruna.png" alt = "fail" id="aruna" style="border-radius: 30%;box-shadow:1px 2px 20px 0px; border:2px solid black; height:450px; width:350px "> 
+                <h2 style="text-align:center">Aruna Amaresan</h2>
+
+                    <img src = "../static/aruna.png" alt = "fail" id="aruna"> 
                     <div class="overlay" id="overlay3"> 
                         <div class="text">Aruna Amaresan</div>
                     </div>
@@ -127,42 +118,10 @@
         
         </div>
             
+        <hr>
+
+        </div>
         
-        <div class="row" id="card1">
-            <div class="col-lg-12">
-            </div>
-             
-        
-        </div>
-        </div>
-        <!--  
-        </div>
-          <div class="row">
-            <div class="col-lg-12">
-                <h3 style="text-align:center;">Movies Coming Soon</h3>  
-              
-            </div>
-          
-          </div>
-          <div class="row">
-              <div class="col-lg-12">
-              <table id = "current_movies" class="table table-bordered table-hover" style="margin-top:3%;">
-                        <thead class="thead-inverse" id="coming_soon">
-                            <tr>
-                                <th class="header_style">Title</th>
-                                <th class="header_style">Release Date</th>
-                                <th class="header_style">Cruncher Rating</th>
-                            </tr>
-                        </thead>
-                    <tbody>
-                    </tbody>
-                    </table>
-              </div>
-          
-          </div>
-            
-      
-      </div>
           <!-- Footer -->
     <footer class="footer bg-light" style="margin-top:3%;">
       <div class="container">
