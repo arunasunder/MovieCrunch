@@ -23,8 +23,9 @@ Plotly.d3.json(default_url, function(error, response) {
     console.log("Inside plotly d3 json function for loading first chart");
     if (error) return console.warn(error);
     var data = [response];
-    var layout = { margin: { t: 30, b:100 } }
+    var layout = { margin: { t: 30, b:100 }  /*, barmode: 'group'*/ }
     Plotly.plot("bar", data, layout)
+    //Plotly.newPlot("bar", data, layout)
 })
 
 // Plot the default route once the page loads for bar2 chart
