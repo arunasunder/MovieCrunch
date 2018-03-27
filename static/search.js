@@ -3,7 +3,7 @@ $("#movie_search").on("keyup", function(e){
       // window.open("search.html","_self")
         $(".elem1").remove()
         var movie_name = d3.select("#movie_search").node().value; 
-        d3.select("#search_text").append("h2").html("Search Results: "+movie_name);
+        d3.select("#search_text").append("h2").html("Search Results: "+movie_name+"<hr>");
 
 
         console.log(movie_name);
