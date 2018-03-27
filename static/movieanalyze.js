@@ -17,14 +17,24 @@ $Y2015Btn.addEventListener("click", handle_2015_ButtonClick);
 $Y2014Btn.addEventListener("click", handle_2014_ButtonClick);
 $Y2013Btn.addEventListener("click", handle_2013_ButtonClick);
 
-// Plot the default route once the page loads
+// Plot the default route once the page loads for first plotly bar chart 
 var default_url = "/top10_movie_by_revenue";
 Plotly.d3.json(default_url, function(error, response) {
-    console.log("Inside plotly d3 json function");
+    console.log("Inside plotly d3 json function for loading first chart");
     if (error) return console.warn(error);
     var data = [response];
     var layout = { margin: { t: 30, b:100 } }
     Plotly.plot("bar", data, layout)
+})
+
+// Plot the default route once the page loads for bar2 chart
+var default_url = "/total_revenue";
+Plotly.d3.json(default_url, function(error, response) {
+    console.log("Inside plotly d3 json function for loading bar2 chart");
+    if (error) return console.warn(error);
+    var data = [response];
+    var layout = { margin: { t: 30, b:100 } }
+    Plotly.plot("bar2", data, layout)
 })
 
 var color_mapper = [ 
@@ -85,29 +95,55 @@ function handle_2013_ButtonClick() {
 
 
 // Update the plot with new data
-function updatePlotly(newdata) {
-    var Bar = document.getElementById('bar');
+function updatePlotly(newdata, chart_element) {
+    var Bar = document.getElementById(chart_element);
     Plotly.restyle(Bar, 'x', [newdata.x])
     Plotly.restyle(Bar, 'y', [newdata.y])
 }
 
-// Get new data whenever the dropdown selection changes
+// Get new data whenever the dropdown selection changes for both bar elements 
 function getData(route) {
     console.log(route);
     Plotly.d3.json(`/${route}`, function(error, data) {
         console.log("newdata", data);
-        updatePlotly(data);
+        if (route.search(new RegExp('total', 'i')) == -1) {
+          updatePlotly(data, 'bar');  
+        } else {
+          updatePlotly(data, 'bar2');
+        }
     });
+}
+
+function getDataForYears(route) {
+
+
 }
 
 // When the browser window is resized, responsify() is called.
 d3.select(window).on("resize", makeResponsive);
 
+// window.onresize = function() {
+
+//   var Bar = document.getElementById('bar');
+//   var Bar2 = document.getElementById('bar2');
+  
+//   Plotly.Plots.resize(Bar);
+//   Plotly.Plots.resize(Bar2);
+// };
+
 // When the browser loads, makeResponsive() is called.
 makeResponsive();
 
 
+
 function makeResponsive() {
+
+  //var Bar = document.getElementById('bar');
+  //var Bar2 = document.getElementById('bar2');
+  
+  //Plotly.Plots.resize(Bar);
+  //Plotly.Plots.resize(Bar2);
+
   // if the SVG area isn't empty when the browser loads, remove it and replace it with a resized version of the chart
   var svgArea = d3.select("body").select("svg");
 
