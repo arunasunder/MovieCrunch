@@ -97,3 +97,37 @@ visibility: hidden;
   display: inline-block;
   /*margin-top: 50px; */
 }
+
+.button_all {
+  background-color: #0d42ba; /* Blue color*/
+}
+
+.button_2017 {
+  background-color: #0dba2f; /* green color*/
+}
+
+.button_2016 {
+  background-color: #8090c2; /* purple color*/
+}
+
+.button_2015 {
+  background-color: #ba2f0d; /* red color*/
+}
+
+.button_2014 {
+  background-color: #f08026; /* orange color*/
+}
+
+.button_2013 {
+  background-color: #ba860d; /* brown color*/
+}
+/* 
+
+'All', 'color': '#0d42ba'}, //blue
+                      { 'year': '2017', 'color': '#0dba2f' },  //green
+                      { 'year': '2016', 'color': '#8090c2' }, //purple
+                      { 'year': '2015', 'color': '#ba2f0d' }, //red
+                      { 'year': '2014', 'color': '#f08026' }, //orange
+                      { 'year': '2013', 'color': '#ba860d' } //brown
+                    ];
+*/

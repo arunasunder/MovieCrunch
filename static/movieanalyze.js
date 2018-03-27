@@ -54,23 +54,31 @@ function handle_2017_ButtonClick() {
 }
 
 function handle_2016_ButtonClick() {
+  movie_revenue_profit_url = "/movie_profit_rating_2016";
   selected = color_mapper[2].year; //2016
   console.log("Selected year: " + selected);
+  makeResponsive();
 }
 
 function handle_2015_ButtonClick() {
+  movie_revenue_profit_url = "/movie_profit_rating_2015";
   selected = color_mapper[3].year; //2015
   console.log("Selected year: " + selected);
+  makeResponsive();
 }
 
 function handle_2014_ButtonClick() {
+  movie_revenue_profit_url = "/movie_profit_rating_2014";
   selected = color_mapper[4].year; //2014
   console.log("Selected year: " + selected);
+  makeResponsive();
 }
 
 function handle_2013_ButtonClick() {
+  movie_revenue_profit_url = "/movie_profit_rating_2013";
   selected = color_mapper[5].year; //2013
   console.log("Selected year: " + selected);
+  makeResponsive();
 }
 
 //Update scatter plot based on user choice 
