@@ -76,7 +76,7 @@ function build2plot(array3,array4){
                         .attr("class", "col-lg-3")
                         .append("p")
                         .attr("class", "card_text")
-                        .html("<b>"+title+"</b><br></br>Released: "+release_date+"<br></br><p>Cruncher Rating: "+rating+"<br>Find Tickets: ")
+                        .html("<b>"+title+"</b><br></br>Released: "+release_date+"<br></br><p>Cruncher Rating: "+rating)
                     buildplot(rev_list,title_list);
                     build2plot(title_list, rating_list);
                     
