@@ -176,6 +176,133 @@ def movie_profit_rating_2017():
 
     return jsonify(array_list)
 
+@app.route("/movie_profit_rating_2016")
+def movie_profit_rating_2016():
+    """Return emoji score and emoji char"""
+
+    # query for the top 10 revenue movie data
+    results = db.session.query(Movie.vote_average, Movie.revenue, Movie.budget, Movie.original_title, Movie.homepage, Movie.poster_path, Movie.release_date).\
+        filter(Movie.release_date.like('%16')).\
+        order_by(Movie.revenue.desc()).\
+        limit(10).all()
+
+    print(results)
+
+    array_list = []
+    #array_element = {}
+    million_unit = 1000000.0
+
+    for result in results:
+        print (result)
+        row = {}
+        row["rating"] = result[0]
+        # Convert gross revenue and budget (in millions)
+        row["revenue"] = float(result[1]) / (million_unit)
+        row["budget"] = float(result[2]) / (million_unit)
+        row["profit"] = (float(result[1]) - float(result[2])) / (million_unit)
+        row["original_title"] = str(result[3])
+        row["homepage"] = str(result[4])
+        row["poster_path"] = str(result[5])
+        row["release_date"] = str(result[6])
+        array_list.append(row)
+
+    return jsonify(array_list)
+
+@app.route("/movie_profit_rating_2015")
+def movie_profit_rating_2015():
+    """Return emoji score and emoji char"""
+
+    # query for the top 10 revenue movie data
+    results = db.session.query(Movie.vote_average, Movie.revenue, Movie.budget, Movie.original_title, Movie.homepage, Movie.poster_path, Movie.release_date).\
+        filter(Movie.release_date.like('%15')).\
+        order_by(Movie.revenue.desc()).\
+        limit(10).all()
+
+    print(results)
+
+    array_list = []
+    #array_element = {}
+    million_unit = 1000000.0
+
+    for result in results:
+        print (result)
+        row = {}
+        row["rating"] = result[0]
+        # Convert gross revenue and budget (in millions)
+        row["revenue"] = float(result[1]) / (million_unit)
+        row["budget"] = float(result[2]) / (million_unit)
+        row["profit"] = (float(result[1]) - float(result[2])) / (million_unit)
+        row["original_title"] = str(result[3])
+        row["homepage"] = str(result[4])
+        row["poster_path"] = str(result[5])
+        row["release_date"] = str(result[6])
+        array_list.append(row)
+
+    return jsonify(array_list)
+
+@app.route("/movie_profit_rating_2014")
+def movie_profit_rating_2014():
+    """Return emoji score and emoji char"""
+
+    # query for the top 10 revenue movie data
+    results = db.session.query(Movie.vote_average, Movie.revenue, Movie.budget, Movie.original_title, Movie.homepage, Movie.poster_path, Movie.release_date).\
+        filter(Movie.release_date.like('%14')).\
+        order_by(Movie.revenue.desc()).\
+        limit(10).all()
+
+    print(results)
+
+    array_list = []
+    #array_element = {}
+    million_unit = 1000000.0
+
+    for result in results:
+        print (result)
+        row = {}
+        row["rating"] = result[0]
+        # Convert gross revenue and budget (in millions)
+        row["revenue"] = float(result[1]) / (million_unit)
+        row["budget"] = float(result[2]) / (million_unit)
+        row["profit"] = (float(result[1]) - float(result[2])) / (million_unit)
+        row["original_title"] = str(result[3])
+        row["homepage"] = str(result[4])
+        row["poster_path"] = str(result[5])
+        row["release_date"] = str(result[6])
+        array_list.append(row)
+
+    return jsonify(array_list)
+
+@app.route("/movie_profit_rating_2013")
+def movie_profit_rating_2013():
+    """Return emoji score and emoji char"""
+
+    # query for the top 10 revenue movie data
+    results = db.session.query(Movie.vote_average, Movie.revenue, Movie.budget, Movie.original_title, Movie.homepage, Movie.poster_path, Movie.release_date).\
+        filter(Movie.release_date.like('%13')).\
+        order_by(Movie.revenue.desc()).\
+        limit(10).all()
+
+    print(results)
+
+    array_list = []
+    #array_element = {}
+    million_unit = 1000000.0
+
+    for result in results:
+        print (result)
+        row = {}
+        row["rating"] = result[0]
+        # Convert gross revenue and budget (in millions)
+        row["revenue"] = float(result[1]) / (million_unit)
+        row["budget"] = float(result[2]) / (million_unit)
+        row["profit"] = (float(result[1]) - float(result[2])) / (million_unit)
+        row["original_title"] = str(result[3])
+        row["homepage"] = str(result[4])
+        row["poster_path"] = str(result[5])
+        row["release_date"] = str(result[6])
+        array_list.append(row)
+
+    return jsonify(array_list)
 
 @app.route("/top10_movie_by_revenue")
 def movie_data():
@@ -199,6 +326,120 @@ def movie_data():
     }
     return jsonify(plot_trace)
 
+@app.route("/top10_movie_by_revenue_2017")
+def movie_data_2017():
+    """Return emoji score and emoji char"""
+    # query for the top 10 revenue movie data
+    results = db.session.query(Movie.original_title, Movie.revenue).\
+        filter(Movie.release_date.like('%17')).\
+        order_by(Movie.revenue.desc()).\
+        limit(10).all()
+
+    print(results)
+
+    # Select the top 10 query results
+    movie_title = [result[0] for result in results]
+    revenues = [int(result[1]) for result in results]
+
+    # Generate the plot trace
+    plot_trace = {
+        "x": movie_title,
+        "y": revenues,
+        "type": "bar"
+    }
+    return jsonify(plot_trace)
+
+@app.route("/top10_movie_by_revenue_2016")
+def movie_data_2016():
+    """Return emoji score and emoji char"""
+    # query for the top 10 revenue movie data
+    results = db.session.query(Movie.original_title, Movie.revenue).\
+        filter(Movie.release_date.like('%16')).\
+        order_by(Movie.revenue.desc()).\
+        limit(10).all()
+
+    print(results)
+
+    # Select the top 10 query results
+    movie_title = [result[0] for result in results]
+    revenues = [int(result[1]) for result in results]
+
+    # Generate the plot trace
+    plot_trace = {
+        "x": movie_title,
+        "y": revenues,
+        "type": "bar"
+    }
+    return jsonify(plot_trace)
+
+@app.route("/top10_movie_by_revenue_2015")
+def movie_data_2015():
+    """Return emoji score and emoji char"""
+    # query for the top 10 revenue movie data
+    results = db.session.query(Movie.original_title, Movie.revenue).\
+        filter(Movie.release_date.like('%15')).\
+        order_by(Movie.revenue.desc()).\
+        limit(10).all()
+
+    print(results)
+
+    # Select the top 10 query results
+    movie_title = [result[0] for result in results]
+    revenues = [int(result[1]) for result in results]
+
+    # Generate the plot trace
+    plot_trace = {
+        "x": movie_title,
+        "y": revenues,
+        "type": "bar"
+    }
+    return jsonify(plot_trace)
+
+@app.route("/top10_movie_by_revenue_2014")
+def movie_data_2014():
+    """Return emoji score and emoji char"""
+    # query for the top 10 revenue movie data
+    results = db.session.query(Movie.original_title, Movie.revenue).\
+        filter(Movie.release_date.like('%14')).\
+        order_by(Movie.revenue.desc()).\
+        limit(10).all()
+
+    print(results)
+
+    # Select the top 10 query results
+    movie_title = [result[0] for result in results]
+    revenues = [int(result[1]) for result in results]
+
+    # Generate the plot trace
+    plot_trace = {
+        "x": movie_title,
+        "y": revenues,
+        "type": "bar"
+    }
+    return jsonify(plot_trace)
+
+@app.route("/top10_movie_by_revenue_2013")
+def movie_data_2013():
+    """Return emoji score and emoji char"""
+    # query for the top 10 revenue movie data
+    results = db.session.query(Movie.original_title, Movie.revenue).\
+        filter(Movie.release_date.like('%13')).\
+        order_by(Movie.revenue.desc()).\
+        limit(10).all()
+
+    print(results)
+
+    # Select the top 10 query results
+    movie_title = [result[0] for result in results]
+    revenues = [int(result[1]) for result in results]
+
+    # Generate the plot trace
+    plot_trace = {
+        "x": movie_title,
+        "y": revenues,
+        "type": "bar"
+    }
+    return jsonify(plot_trace)
 
 '''
 @app.route("/scatter_plot_test")
