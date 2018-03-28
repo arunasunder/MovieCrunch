@@ -16,7 +16,9 @@ This page was created using various tools including SQLlite backend and API inte
 - Used D3 visualization and transition between Profit and Revenue for Scatter plot. Color enhancements consistent on the page.
 - On hover, used transtions for showing details on movie as folks hover on movies. 
 - Did hover with transition display. 
-- Used Plotly interactive chart for sharing revenie and %of Budget amounts. 
+- Used Plotly interactive chart libraries for sharing revenie and %of Budget amounts. 
+- Using JQuery for paginations
+- Bootstrap and CSS 
 
 ## Working on:
 A search paginated page to search by genre, year, rating and title
